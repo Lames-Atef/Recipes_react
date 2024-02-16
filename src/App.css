@@ -1,0 +1,19 @@
+.share_bg{
+    background-image: url(./assets/image/03c0eeec-32a6-4f53-bf12-5671ac4bdd55.jpg);
+background-size:cover;
+}
+.overlay{
+    background:linear-gradient(45deg,rgba(37, 142, 97,.4),rgba(0,0,0,.5));
+    
+}
+.sidebarContainer .ps-sidebar-container{
+    background-color: rgba(1, 1, 14);
+    color: aliceblue;
+    height: 100vh;
+}
+.sidebarContainer .ps-sidebar-container .ps-menu-button:hover{
+    background-color: rgb(4, 41, 29);
+}
+.sidebarContainer .ps-menu-root .css-ewdv3l{
+    text-align: center;
+}
