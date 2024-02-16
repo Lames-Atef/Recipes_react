@@ -14,7 +14,7 @@ export default function MasterLayout({adminData}) {
        </div>
     <div className="w-100">
        <NavBar adminData={adminData}/>
-       <Header adminData={adminData}/>
+     
         <Outlet/>
     </div>
 </div>

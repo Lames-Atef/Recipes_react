@@ -45,7 +45,7 @@ var routes=createBrowserRouter([
 <MasterLayout adminData={adminData}/>
     </ProtectedLogin>),
     children:[
-      {index:"true",element:<Home/>},
+      {index:"true",element:<Home  adminData={adminData}/>},
       {path:"userlist",element:<UserList/>},
       {path:'category',element:<Category/>},
       {path:'Recipes',element:<Recipes/>}
