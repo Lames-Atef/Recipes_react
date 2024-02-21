@@ -1,5 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Header from '../../../SharedModule/Component/Header/Header.jsx';
+
 
 export default function Category() {
   return (
