@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from "../../../assets/image/logo.png.png"
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form"
 import axios from 'axios';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
@@ -89,9 +89,7 @@ export default function ResetPassword() {
   }})} className="form-control" placeholder="Confirm new Password"/>
   {errors.confirmPassword&&<p>{errors.confirmPassword.message}</p>}
 </div>
-
 <button className='btn btn-success w-100 mb-3'>Reset Password</button>
-
     </form>
    </div>
     </div>
