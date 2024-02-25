@@ -1,12 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import RecipeHeader from '../../../SharedModule/Component/RecipeHeader/RecipeHeader.jsx'
-import { useForm } from 'react-hook-form'
+import { useForm} from 'react-hook-form'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export default function RecipesForm() {
-  const{register,handleSubmit,formState:{errors}}=useForm();
+  const{register,handleSubmit,setValue,formState:{errors}}=useForm();
   const[categoryList,setCategoryList]=useState([]);
   const[tagList,setTagList]=useState([]);
+  
 
   const AppendToFormData=(data)=>{
 let formData=new FormData();
@@ -25,13 +27,13 @@ let token=localStorage.getItem("admin");
     let response=await axios.post
     ('https://upskilling-egypt.com:443/api/v1/Recipe/',recipeAppendForm
     ,{headers:{Authorization:token}});
-    
     console.log(response.data);
    } catch (error) {
     console.log(error)
-   }
-  
+   } 
 }
+
+
   
 let gitCategoryList=async()=>{
     let token=localStorage.getItem("admin");

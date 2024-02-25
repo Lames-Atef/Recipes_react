@@ -7,9 +7,10 @@ import NoData from '../../../SharedModule/Component/NoData/NoData.jsx';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-bootstrap/Modal';
 import Delete from '../../../SharedModule/Component/Delete/Delete.jsx';
-
+import { Link } from 'react-router-dom';
 
 export default function Recipes() {
+  
   const [show, setShow] = useState(false);
   const [modalState, setModalState] = useState(false);
   const {register,handleSubmit,setValue,formState:{errors}}=useForm();
@@ -19,13 +20,14 @@ export default function Recipes() {
 const [recipeId,setRecipeId]=useState([]);
  const navigate=useNavigate();
  const navigateToRecipesForm=()=>{
-  navigate("/dashboard/recipesForm");
+  navigate('/dashboard/recipesForm');
  }
 const handelDelete=(id)=>{
 setRecipeId(id);
 setShow(true);
 setModalState("delete");
 }
+
   let gitRecipeList=async()=>{
     let token=localStorage.getItem("admin");
    try {
@@ -99,7 +101,7 @@ setModalState("delete");
           </tr>
         </thead>
         <tbody>
-         {recipeList.map((meal)=>(
+         {recipeList.map((meal)=>( 
             <tr key={meal.id}>
             <th scope="row">{meal.id}</th>
             <td>{meal.name}</td>
@@ -109,7 +111,8 @@ setModalState("delete");
             <td>{meal.price}</td>
             <td>{meal.category[0]?.name}</td>
 <td>
-  <i className='fa fa-edit text-warning mx-2' aria-hidden="true"></i>
+  <i onClick={()=>{navigate(`/dashboard/updateRecipe/${meal.id}`);}}
+   className='fa fa-edit text-warning mx-2' aria-hidden="true"> </i>
 </td>
 <td> <i onClick={()=>handelDelete(meal.id)} className='fa fa-trash text-danger mx-2' aria-hidden="true"></i>
 </td>

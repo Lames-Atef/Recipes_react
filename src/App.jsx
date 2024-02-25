@@ -15,6 +15,7 @@ import { jwtDecode } from 'jwt-decode'
 import ProtectedLogin from './SharedModule/Component/ProtectedLogin/ProtectedLogin.jsx'
 import ForgetPassword from './AuthUser/Component/ForgetPassword/ForgetPassword.jsx'
 import RecipesForm from './RcipesModule/Component/RecipesForm/RecipesForm.jsx'
+import UpdateRecipe from './RcipesModule/Component/UpdateRecipe/UpdateRecipe.jsx'
 function App() {
 const[adminData,setAdminData]=useState(null);
 
@@ -50,7 +51,9 @@ var routes=createBrowserRouter([
       {path:"userList",element:<UserList/>},
       {path:'category',element:<Category/>},
       {path:'recipes',element:<Recipes/>},
-      {path:'recipesForm',element:<RecipesForm/>}
+      {path:'recipesForm',element:<RecipesForm/>},
+      {path:'updateRecipe/:mealId',element:<UpdateRecipe/>}
+
 
   ]}])
   return (
