@@ -4,6 +4,8 @@ import Modal from 'react-bootstrap/Modal';
 import { useForm } from 'react-hook-form';
 import Header from '../../../SharedModule/Component/Header/Header.jsx';
 import noData from "../../../assets/image/Group no.svg";
+import Delete from '../../../SharedModule/Component/Delete/Delete.jsx';
+import NoData from '../../../SharedModule/Component/NoData/NoData.jsx';
 
 export default function Category() {
   const [show, setShow] = useState(false);
@@ -49,7 +51,7 @@ let gitCategory=async()=>{
   let token=localStorage.getItem("admin");
  try {
   let response=await axios.get
-  ('https://upskilling-egypt.com:443/api/v1/Category/?pageSize=1&pageNumber=1'
+  ('https://upskilling-egypt.com:443/api/v1/Category/?pageSize=10&pageNumber=1'
   ,{headers:{Authorization:token}});
   setCategoryList(response?.data?.data);
   console.log(response.data.data);
@@ -114,10 +116,8 @@ useEffect(()=>{
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit(deleteCategory)}>
-          <div className="input-group mb-3">
-  <img src={noData} className='w-50' alt=""/>
-</div>
-<button className='btn btn-success' onClick={deleteCategory} >delete item</button>
+         <Delete/>
+<button className='btn btn-outline-danger' onClick={deleteCategory} >Delete item</button>
           </form>
         </Modal.Body>
       </Modal>
@@ -179,7 +179,7 @@ useEffect(()=>{
   </tbody>
 </table>
   )
-    :(<div className='text-center'><img src={noData}/></div>)}
+    :(<NoData/>)}
 </div>
     </div>
     </>

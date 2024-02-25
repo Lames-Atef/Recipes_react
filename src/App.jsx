@@ -14,6 +14,7 @@ import Category from './CategoryModule/Component/Category/Category.jsx'
 import { jwtDecode } from 'jwt-decode'
 import ProtectedLogin from './SharedModule/Component/ProtectedLogin/ProtectedLogin.jsx'
 import ForgetPassword from './AuthUser/Component/ForgetPassword/ForgetPassword.jsx'
+import RecipesForm from './RcipesModule/Component/RecipesForm/RecipesForm.jsx'
 function App() {
 const[adminData,setAdminData]=useState(null);
 
@@ -46,9 +47,11 @@ var routes=createBrowserRouter([
     </ProtectedLogin>),
     children:[
       {index:"true",element:<Home  adminData={adminData}/>},
-      {path:"userlist",element:<UserList/>},
+      {path:"userList",element:<UserList/>},
       {path:'category',element:<Category/>},
-      {path:'Recipes',element:<Recipes/>}
+      {path:'recipes',element:<Recipes/>},
+      {path:'recipesForm',element:<RecipesForm/>}
+
   ]}])
   return (
     <>
