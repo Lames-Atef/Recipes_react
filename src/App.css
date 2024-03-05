@@ -6,10 +6,14 @@ background-size:cover;
     background:linear-gradient(45deg,rgba(37, 142, 97,.4),rgba(0,0,0,.5));
     
 }
+/* <######################sidebar####################> */
+
+
 .sidebarContainer .ps-sidebar-container{
-    background-color: rgba(1, 1, 14);
-    color: aliceblue;
-    height: 100vh;
+    background-color: #0b0b0b;
+    color: white;
+    height: 200vh;
+    border-top-right-radius: 70px;
 }
 .sidebarContainer .ps-sidebar-container .ps-menu-button:hover{
     background-color: rgb(4, 41, 29);
@@ -20,3 +24,50 @@ background-size:cover;
 .content{
     background-image: url("./assets/image/Rectangle.png");
 }
+
+/* <######################Header####################> */
+.tittle-share-header{
+color: aliceblue;
+}
+/* <######################favourit####################> */
+.fa-eye{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.fav{
+    position: relative;
+background-color: aliceblue;
+       
+}
+/* <######################NotFound####################> */
+.layer-Not{
+    background-image: url("./assets/image/ropot.svg.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+.imageRecipe{
+    height: 25%;
+    width: 25%;
+
+}
+.table-head{
+    background-color: rgb(188, 185, 185) !important;
+  
+}
+.img-container{
+    width: 50px;
+    height: 50px;
+}
+.test1{
+    border-top-right-radius: 20px;
+    
+}
+.test2{
+    border-top-left-radius: 20px;
+    
+}
+/* .fa-solid ,.fa-key {
+    color:#0a6e3f;
+} */

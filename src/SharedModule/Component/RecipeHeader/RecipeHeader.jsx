@@ -13,7 +13,7 @@ export default function RecipeHeader() {
 <div className="col-md-8">
   <div>
   <h4>Fill the <span style={{color:"green"} }>Recipe</span>!</h4>
-  <p>you can now fill the meals easily using the table and form ,
+  <p style={{fontSize:"20px"}}>you can now fill the meals easily using the table and form ,
      click here and sill it with the table !</p>
   </div>
 </div>

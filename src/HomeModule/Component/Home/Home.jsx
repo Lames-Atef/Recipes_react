@@ -10,7 +10,7 @@ export default function Home({adminData}) {
     <>
       <ToastContainer />
      <Header
-     tittle={`welcome to ${adminData?.userName}`}
+     tittle={`Welcome to ${adminData?.userName}`}
      description="This is a welcoming screen for the entry of the application , you can now see the options"
      />
      <div>

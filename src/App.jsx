@@ -16,12 +16,18 @@ import ProtectedLogin from './SharedModule/Component/ProtectedLogin/ProtectedLog
 import ForgetPassword from './AuthUser/Component/ForgetPassword/ForgetPassword.jsx'
 import RecipesForm from './RcipesModule/Component/RecipesForm/RecipesForm.jsx'
 import UpdateRecipe from './RcipesModule/Component/UpdateRecipe/UpdateRecipe.jsx'
+import Register from './AuthUser/Component/Register/Register.jsx'
+import VerifyAccount from './AuthUser/Component/VerifyAccount/VerifyAccount.jsx'
+
+import Favorites from './FavoritesModule/Component/Favorites.jsx'
+import NotFound from './SharedModule/Component/NotFound/NotFound.jsx'
 function App() {
 const[adminData,setAdminData]=useState(null);
 
 let saveAdminData=()=>{
 let encodeData=localStorage.getItem("admin");
 let decodedData=jwtDecode(encodeData);
+localStorage.setItem("adminData",JSON.stringify(decodedData ))
 setAdminData(decodedData);
 console.log(decodedData);
 }
@@ -38,7 +44,11 @@ var routes=createBrowserRouter([
       {index:"true",element:<Login saveAdminData={saveAdminData}/>},
       {path:"login",element:<Login saveAdminData={saveAdminData}/>},
       {path:'ResetPassword',element:<ResetPassword/>},
-      {path:'ForgetPassword',element:<ForgetPassword/>}
+      {path:'ForgetPassword',element:<ForgetPassword/>},
+      {path:'VerifyAccount',element:<VerifyAccount/>},
+
+      {path:'register',element:<Register/>}
+
 
     ]
   },{
@@ -51,6 +61,9 @@ var routes=createBrowserRouter([
       {path:"userList",element:<UserList/>},
       {path:'category',element:<Category/>},
       {path:'recipes',element:<Recipes/>},
+      {path:'favorites',element:<Favorites/>},
+      {path:'*',element:<NotFound/>},
+
       {path:'recipesForm',element:<RecipesForm/>},
       {path:'updateRecipe/:mealId',element:<UpdateRecipe/>}
 

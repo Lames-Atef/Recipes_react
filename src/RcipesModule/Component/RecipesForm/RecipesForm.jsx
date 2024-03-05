@@ -3,6 +3,7 @@ import RecipeHeader from '../../../SharedModule/Component/RecipeHeader/RecipeHea
 import { useForm} from 'react-hook-form'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function RecipesForm() {
   const{register,handleSubmit,setValue,formState:{errors}}=useForm();
@@ -28,8 +29,9 @@ let token=localStorage.getItem("admin");
     ('https://upskilling-egypt.com:443/api/v1/Recipe/',recipeAppendForm
     ,{headers:{Authorization:token}});
     console.log(response.data);
+    toast.success(response.data.message,{duration:1000})
    } catch (error) {
-    console.log(error)
+    toast.error("Error",{duration:2000})
    } 
 }
 
@@ -66,6 +68,7 @@ let gitCategoryList=async()=>{
   },[])
   return (
     <>
+    <ToastContainer/>
 <div className='header pt-3'>
 <RecipeHeader/>
 </div>

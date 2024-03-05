@@ -33,7 +33,7 @@ export default function ResetPassword() {
     </div>
    <div className="w-75 m-auto">
    <div className='p-3'>
-<h4> Reset Password</h4>
+<h2 style={{color:"#198754"}}> Reset Password</h2>
 <p className='text-muted'>Welcome Back! Please enter your details</p>
     </div>
     <form onSubmit={handleSubmit(submitData)}>
