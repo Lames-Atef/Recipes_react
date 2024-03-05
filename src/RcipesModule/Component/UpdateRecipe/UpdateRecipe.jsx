@@ -97,7 +97,7 @@ export default function UpdateRecipe() {
 <form onSubmit={handleSubmit(updateCategoryList)}>
     <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-user "  aria-hidden="true"></i></span>
   <input type="text" {...register("name",{required:true,
 })} className="form-control" value={recipeId.name} onChange={e=>setRecipeId({...recipeId,name:e.target.value})} placeholder="Enter recipe name"/>
   {errors.name&&<p>{errors.name.message}</p>}
@@ -105,21 +105,21 @@ export default function UpdateRecipe() {
 
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-money-check-dollar"></i></span>
   <input type="number" {...register("price",{required:true,
  })} className="form-control" value={recipeId.price} onChange={e=>setRecipeId({...recipeId,price:e.target.value})} placeholder="enter your Price"/>
   {errors.price&&<p>{errors.price.message}</p>}
 </div>
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-image"></i></span>
   <input type="file" {...register("recipeImage",{
  })} className="form-control" value={recipeId.recipeImage} onChange={e=>setRecipeId({...recipeId,recipeImage:e.target.value})} placeholder="enter your image"/>
   {errors.recipeImage&&<p>{errors.recipeImage.message}</p>}
 </div>
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i class="fa-solid fa-audio-description"></i></span>
   <textarea {...register("description",{
  })} className="form-control" value={recipeId.description} onChange={e=>setRecipeId({...recipeId,description:e.target.value})} placeholder="enter your description"></textarea>
   {errors.description&&<p>{errors.description.message}</p>}
@@ -127,7 +127,7 @@ export default function UpdateRecipe() {
 
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-sort-down"></i></span>
   <select {...register("categoriesIds",{required:true,
  })} className="form-control" value={recipeId.categoriesIds} onChange={e=>setRecipeId({...recipeId,tagId:e.target.value})}>{categoryList?.map((item,index)=>(
 <option key={index} value={item.id}>{item.name}</option>
@@ -136,7 +136,7 @@ export default function UpdateRecipe() {
 </div>
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-sort-down"></i></span>
   <select {...register("tagId",{required:true,
  })} className="form-control"value={recipeId.tagId} onChange={e=>setRecipeId({...recipeId,categoriesIds:e.target.value})} >{tagList?.map((item,index)=>(
 <option key={index} value={item.id}>{item.name}</option>

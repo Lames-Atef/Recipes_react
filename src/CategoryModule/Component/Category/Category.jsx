@@ -115,7 +115,7 @@ useEffect(()=>{
           <form onSubmit={handleSubmit(addNewCategory)}>
           <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-user "  aria-hidden="true"></i></span>
   <input type="text" {...register("name",{required:true,
   pattern:{
         message:"category is required"
@@ -147,7 +147,7 @@ useEffect(()=>{
           <form onSubmit={handleSubmit(updateCategory)}>
           <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-user "aria-hidden="true"></i></span>
   <input  type="text" {...register("name",{required:true,
   pattern:{
         message:"category is required"

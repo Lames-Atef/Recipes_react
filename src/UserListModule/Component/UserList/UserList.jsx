@@ -17,11 +17,10 @@ export default function UserList() {
   const[pageArray,setPageArray]=useState([]);  
   const [userId,setUserId]=useState(0);
   const [isloading, setisLoading] = useState(false)
-  const [modalState, setModalState] = useState(false);
-  const [viewCard, setViewCard] = useState([]);
-
+  const [modelState, setModelState] = useState(false)
+  const [userDetails , setUserDetails] = useState({});
   const {register,handleSubmit,setValue,formState:{errors}}=useForm();
-  const handleClose = () => setModalState(false);
+  const handleClose = () => setModelState(false);
 
 const gitListUser=async(pageNumber,pageSize,name,email)=>{
   let token=localStorage.getItem("admin");
@@ -72,8 +71,27 @@ const getEmailValue=(data)=>{
   setGitEmail(data.target.value);
   gitListUser(1,5,data.target.value,gitName);
 }
+const showViewModel = (id)=>{
+  setUserId(id)
+  setModelState("view-model")
+  getUserDetails(id)
+}
+const getUserDetails = (id)=>{
+  console.log(id);
+  let token=localStorage.getItem("admin");
+axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` , 
+{
+  headers:{Authorization:token}
+})
+.then((response)=>{
+  console.log(response?.data);
+  setUserDetails(response?.data);
 
-
+}).catch((error)=>{
+  // console.log(error.response.data.message);
+  error(error?.response?.data?.message || "Not Found Tag Ids")
+})
+}
 
   return (
     <>
@@ -81,9 +99,26 @@ const getEmailValue=(data)=>{
      tittle={`welcome to users list`}
      description="This is a welcoming screen for the entry of the application , you can now see the options"
      />
+<Modal show={modelState == "view-model"} onHide={handleClose}>
+        <Modal.Body>
+            <h3 className='ms- mt-3 text-success fw-bold'>User Details</h3>
 
+          <div className='mt-4 userDetails'>
+            <div className='w-25 m-auto mt-4'>
+              {
+                userDetails?.imagePath ? <img className='w-100' src={`https://upskilling-egypt.com:443/`+userDetails.imagePath} alt="" /> 
+                : <img className='w-100 rounded-4' src={noData} alt="" />
+              }
+            </div>
+            <h6 className="mt-4 fs-5"> <span className='text-success fs-'>User Name : </span> {userDetails?.userName}  </h6>
+            <h6 className="fs-5"> <span className='fs-6 text-success'>Role : </span> {userDetails?.group?.name} </h6>
+            <h6 className="fs-5"> <span className='fs-6 text-success'>Email : </span> {userDetails?.email}  </h6>
+            <h6 className="fs-5"> <span className='fs-6 text-success'>Phone Number : </span> {userDetails?.phoneNumber} </h6>
+            </div>
+          </Modal.Body>
+        </Modal>
 
-     <Modal show={modalState=="delete"} onHide={handleClose}>
+     <Modal show={modelState=="delete"} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Delete User</Modal.Title>
         </Modal.Header>
@@ -138,8 +173,12 @@ const getEmailValue=(data)=>{
             <td>{user.country}</td>
             <td> 
   <i onClick={() => handleDelete(user.id)} className='fa fa-trash text-danger mx-2' 
-  aria-hidden="true"></i></td>
+  aria-hidden="true"></i>
+
+  <i onClick={()=>showViewModel(user.id)}
+   className='fa fa-info text-warning mx-2' aria-hidden="true"> </i></td>
           </tr>
+          
           ))}        
         </tbody>
       </table>

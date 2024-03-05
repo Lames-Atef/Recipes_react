@@ -76,7 +76,7 @@ let gitCategoryList=async()=>{
 <form onSubmit={handleSubmit(submitData)}>
     <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-user "  aria-hidden="true"></i></span>
   <input type="text" {...register("name",{required:true,
 })} className="form-control" placeholder="Enter recipe name"/>
   {errors.name&&<p>{errors.name.message}</p>}
@@ -84,21 +84,21 @@ let gitCategoryList=async()=>{
 
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-money-check-dollar"></i></span>
   <input type="number" {...register("price",{required:true,
  })} className="form-control" placeholder="enter your Price"/>
   {errors.price&&<p>{errors.price.message}</p>}
 </div>
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-image"></i></span>
   <input type="file" {...register("recipeImage",{
  })} className="form-control" placeholder="enter your image"/>
   {errors.recipeImage&&<p>{errors.recipeImage.message}</p>}
 </div>
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-audio-description"></i></span>
   <textarea {...register("description",{
  })} className="form-control" placeholder="enter your description"></textarea>
   {errors.description&&<p>{errors.description.message}</p>}
@@ -106,7 +106,7 @@ let gitCategoryList=async()=>{
 
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-sort-down"></i></span>
   <select {...register("categoriesIds",{required:true,
  })} className="form-control" >{categoryList?.map((item,index)=>(
 <option key={index} value={item.id}>{item.name}</option>
@@ -115,7 +115,7 @@ let gitCategoryList=async()=>{
 </div>
 <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
-  <i className="fa-key fa"  aria-hidden="true"></i></span>
+  <i className="fa-solid fa-sort-down"></i></span>
   <select {...register("tagId",{required:true,
  })} className="form-control" >{tagList?.map((item,index)=>(
 <option key={index} value={item.id}>{item.name}</option>

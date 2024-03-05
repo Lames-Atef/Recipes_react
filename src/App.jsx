@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import AuthLayout from './SharedModule/Component/AuthLayout/AuthLayout.jsx'
