@@ -11,7 +11,7 @@ background-size:cover;
 
 .sidebarContainer .ps-sidebar-container{
     background-color: #0b0b0b;
-    color: white;
+    color: white !important;
     height: 200vh;
     border-top-right-radius: 70px;
 }
@@ -41,11 +41,11 @@ background-color: aliceblue;
        
 }
 /* <######################NotFound####################> */
-.layer-Not{
-    background-image: url("./assets/image/ropot.svg.jpg");
 
+.notfound{
+    background-image: url("./assets/image/ropot.svg.jpg");
     background-size: cover;
-    background-position: center;
+   
 }
 .imageRecipe{
     height: 25%;
@@ -68,6 +68,16 @@ background-color: aliceblue;
     border-top-left-radius: 20px;
     
 }
-/* .fa-solid ,.fa-key {
+.fa-solid ,.fa-key {
     color:#0a6e3f;
-} */
+}
+.sidebarContainer .fa-solid ,.sidebarContainer .fa-key {
+    color: antiquewhite !important;
+}
+.borderless input,.borderless select {
+    border: none; /* Remove the border */
+    outline: none; /* Remove the outline when focused */
+    background-color: rgb(238, 239, 239); /* Optionally, make the background transparent */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 8px; 
+}

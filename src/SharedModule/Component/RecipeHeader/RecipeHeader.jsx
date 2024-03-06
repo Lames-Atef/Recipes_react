@@ -19,7 +19,7 @@ export default function RecipeHeader() {
 </div>
 <div className="col-md-4 d-flex justify-content-end">
   <div>
-  <button onClick={navigateToRecipe} className='btn btn-success'>Fill Recipe <i className="fa-solid fa-arrow-right"></i></button>
+  <button onClick={navigateToRecipe} className='btn btn-success'>Fill Recipe <i style={{color:"white"}} className="fa-solid fa-arrow-right"></i></button>
   </div>
 
 </div>

@@ -175,7 +175,7 @@ useEffect(()=>{
 </div>
 </div>
 <div className='filter p-3 '>
-<div className='col-md-9 text-center m-auto '>
+<div className='col-md-9 text-center m-auto borderless '>
   <div>
     <input type='text' className='form-control mb-3' onChange={gitNameValue}  placeholder='Select By Name'/>
   </div>

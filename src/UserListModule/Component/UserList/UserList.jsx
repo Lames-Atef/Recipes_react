@@ -129,10 +129,10 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
           </form>
         </Modal.Body>
       </Modal>
-      {isloading?<Loading/>: (<> <div className='selects-recipe row p-3'>
-<div className='col-md-6'>
-  <div>
-    <input type='text' className='form-control mb-3' onChange={getNameValue} placeholder='Select By Name'/>
+      {isloading?<Loading/>: (<> <div className='selects-recipe row p-3 borderless'>
+<div className='col-md-6 '>
+  <div className=''>
+    <input type='text' className='form-control mb-3 ' onChange={getNameValue} placeholder='Select By Name'/>
   </div>
 </div>
 <div className='col-md-6'>
@@ -165,9 +165,11 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
             <td>{user.userName}</td>
             <td>{user.email}</td>
             <td>
-                    <div className='img-container'>
-                      <img className='w-100 h-100' src={`https://upskilling-egypt.com:443/`+user.imagePath} alt="" />
-                    </div>
+            <div className='img-container'>
+               { user.imagePath ? <img className='w-100' src={`https://upskilling-egypt.com:443/`+user.imagePath} alt="" /> 
+                : <img className='w-100 h-100 rounded-4' src={noData} alt="" />}
+                </div> 
+                    
                   </td>
             <td>{user.phoneNumber}</td>
             <td>{user.country}</td>
@@ -176,7 +178,7 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
   aria-hidden="true"></i>
 
   <i onClick={()=>showViewModel(user.id)}
-   className='fa fa-info text-warning mx-2' aria-hidden="true"> </i></td>
+   className='fa fa-info text-success mx-2' aria-hidden="true"> </i></td>
           </tr>
           
           ))}        

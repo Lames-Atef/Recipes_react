@@ -167,7 +167,7 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
 <button className='btn btn-success' onClick={navigateToRecipesForm}>Add New Recipes</button>
 </div>
 </div>
-<div className='selects-recipe row p-3'>
+<div className='selects-recipe row p-3 borderless'>
 <div className='col-md-6'>
   <div>
     <input type='text' className='form-control mb-3' onChange={getNameValue} placeholder='Select By Name'/>
@@ -211,8 +211,11 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
             <td>{meal.name}</td>
             <td>{meal.description}</td>
             <td>
-                    <div className='img-container'>
+                    <div className='img-container'>{
+                      meal.imagePath?
                       <img className='w-100 h-100' src={`https://upskilling-egypt.com:443/`+meal.imagePath} alt="" />
+                : <img className='w-100 h-100 rounded-4' src={noData} alt="" />
+                    }
                     </div>
                   </td>
                   <td>{meal.price}</td>
