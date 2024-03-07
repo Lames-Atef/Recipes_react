@@ -41,10 +41,13 @@ export default function Login({saveAdminData}) {
   }
   return (
     <>
-    <div className="container-flied share_bg vh-100">
-<div className="row vh-100 justify-content-center align-items-center overlay ">
-  <div className="col-md-5">
-  <ToastContainer />
+    <ToastContainer /> 
+    <div className="  share_bg vh-100 ">
+
+<div className="overlay pt-5">
+ <div className="d-flex  justify-content-center align-items-center">
+<div className="w-50">
+  
 
     <div className=' bg-white rounded-3'>
     <div className='logo m-3 text-center pt-3'>
@@ -68,10 +71,10 @@ export default function Login({saveAdminData}) {
   {errors.email&&<p className='alert alert-danger'>{errors.email.message}</p>}
 </div>
 
-<div className="input-group mb-3">
+                        <div className="input-group mb-3">
   <span className="input-group-text" id="basic-addon1">
   <i className="fa-key fa"  aria-hidden="true"></i></span>
-  <input type={type} {...register("password",{required:true,
+  <input type="password" {...register("password",{required:true,
   pattern:{
     value:{...register("password",{required:true,
       pattern:{
@@ -80,17 +83,14 @@ export default function Login({saveAdminData}) {
       }})},
     message:"password is required"
   }})} className="form-control" placeholder="Enter your Password"/>
+  {errors.password&&<p>{errors.password.message}</p>}
   <span className="input-group-text" id="basic-addon1" onClick={handelToggle} >
                                 {icone ? (
-                                    <i className="fa-solid fa-eye"></i>
-                                   
+                                   <i className="fa-solid fa-eye"></i>
                                 ) : (
-                                    <i className="fa-solid fa-eye-slash"></i>
-                                   
+                                  <i className="fa-solid fa-eye-slash"></i>
                                 )}
-                            </span>
-  
-  {errors.password&&<p>{errors.password.message}</p>}
+                            </span> 
 </div>
 
 <div className='d-flex justify-content-between mb-3'>
@@ -104,7 +104,8 @@ export default function Login({saveAdminData}) {
    </div>
     </div>
 
-  </div>
+  </div> 
+ </div>
 </div>
     </div>
     </>

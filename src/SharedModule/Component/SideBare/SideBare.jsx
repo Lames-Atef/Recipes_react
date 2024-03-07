@@ -37,10 +37,10 @@ setIsCollapsed(!isCollapsed);
   <MenuItem onClick={toggleCollapsed} icon={<img src={toggle} />} ></MenuItem>
   </Menu>
    </div>
-  <Menu>
+  <Menu className=''>
   <MenuItem icon={<i className="fa-solid fa-house"></i>} component={<Link to="/dashboard" />}>Home</MenuItem>
  {adminData?.userGroup=="SuperAdmin"?
- <MenuItem icon={<i className="fa-solid fa-users"></i>} 
+ <MenuItem icon={<i className=" fa-solid fa-users"></i>} 
  component={<Link to="/dashboard/userlist" />}> User</MenuItem>:""
 }
     

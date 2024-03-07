@@ -45,7 +45,7 @@ const gitListUser=async(pageNumber,pageSize,name,email)=>{
 const handleDelete=(id)=>{
   setUserId(id);
 setShow(true);
-setModalState("delete");
+setModelState("delete");
 }
 const deleteUser=async()=>{
   let token=localStorage.getItem("admin");
@@ -129,7 +129,7 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
           </form>
         </Modal.Body>
       </Modal>
-      {isloading?<Loading/>: (<> <div className='selects-recipe row p-3 borderless'>
+       <div className='selects-recipe row p-3 borderless'>
 <div className='col-md-6 '>
   <div className=''>
     <input type='text' className='form-control mb-3 ' onChange={getNameValue} placeholder='Select By Name'/>
@@ -141,7 +141,7 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
   </div>
 </div>
 </div>
-
+{isloading?<Loading/>: <>
      <div className='view p-3'>
       {gitList.length>0?
         <table className="table table-striped">
@@ -174,11 +174,11 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
             <td>{user.phoneNumber}</td>
             <td>{user.country}</td>
             <td> 
-  <i onClick={() => handleDelete(user.id)} className='fa fa-trash text-danger mx-2' 
-  aria-hidden="true"></i>
+ <button onClick={() => handleDelete(user.id)}> <i  className='fa fa-trash text-danger mx-2' 
+  aria-hidden="true"></i></button>
 
-  <i onClick={()=>showViewModel(user.id)}
-   className='fa fa-info text-success mx-2' aria-hidden="true"> </i></td>
+  <button onClick={()=>showViewModel(user.id)}><i 
+   className='fa fa-info text-success mx-2' aria-hidden="true"> </i></button></td>
           </tr>
           
           ))}        
@@ -187,6 +187,7 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
       :
       <div>(<NoData/>)</div>
       }  
+      <div className='d-flex justify-content-center '>
       <nav aria-label="Page navigation example">
   <ul className="pagination">
     <li className="page-item">
@@ -204,7 +205,8 @@ axios.get( `https://upskilling-egypt.com:443/api/v1/Users/${id}` ,
     </li>
   </ul>
 </nav> 
-     </div></>)}
+</div>
+     </div></>}
     </>
   )
 }

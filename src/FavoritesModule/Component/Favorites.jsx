@@ -53,15 +53,15 @@ const [isloading, setisLoading] = useState(false)
        {isloading?<Loading/>: (
 <div className='row p-3'>
     {favoriteUser.length>0?
-    favoriteUser.map((item,index)=>(
-<div key={index} className="col-md-4">
+    favoriteUser.map((item)=>(
+<div key={item.id} className="col-md-4">
 <div style={{ borderRadius: 8 }} className='fav '>
 <>{item.recipe.imagePath?<img className='w-100 rounded-3' src={`https://upskilling-egypt.com/${item.recipe.imagePath}`}/>:
-            <div className='text-center'><img src={noData} className='w-75'/></div>}</>
+            <div className='text-center'><img src={noData} className='w-50'/></div>}</>
 
-<h3>{item.recipe.name}</h3>
-<p className='text-muted'>{item.recipe.description}</p>
-<i onClick={()=>deleteFavorite(item.id)} className="fa-solid fa-eye "></i>
+<h4> <span style={{color:"#198754"}}>Name:</span>{item.recipe.name}</h4>
+<p className='text-muted'><span style={{color:"#198754"}}>Dscription:</span> {item.recipe.description}</p>
+<button onClick={()=>deleteFavorite(item.id)}><i  className="fa-solid fa-trash text-danger my-2 deleteFav "></i></button>
 </div>
 </div>
     ))

@@ -157,7 +157,7 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
     tittle={"welcome recipe"}
     description={"This is a welcoming screen for the entry of the application , you can now see the options"}
     />    
-      {isloading?<Loading/>: <>  <div className='tittle d-flex justify-content-between p-4'>
+        <div className='tittle d-flex justify-content-between p-4'>
        
 <div className='detail-recipe'>
   <h6>Recipes table detail</h6>
@@ -188,9 +188,10 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
  ))}</select>
 </div>
         </div>
-      
+        {isloading?<Loading/>: 
      <div className='tableList p-3'>
       {recipeList.length>0?(
+          
     <table className="table table-striped ">
   <thead >
     <tr>
@@ -205,6 +206,7 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
     </tr>
   </thead>
   <tbody>
+ 
     {recipeList.map((meal,index)=>(
  <tr key={index}>
    <th scope="row">{meal.id}</th>
@@ -238,10 +240,14 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
 }  
  </tr>
     ))}
+   
   </tbody>
-</table>):(<NoData/>)}
-<nav aria-label="Page navigation example">
-  <ul className="pagination">
+</table> 
+
+):(<NoData/>)}
+<div className='d-flex justify-content-center '>
+<nav aria-label="Page navigation example  ">
+  <ul className="pagination  ">
     <li className="page-item">
       <a className="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -257,8 +263,9 @@ gitRecipeList(5,1,data.target.value,getTag,getCategory);
     </li>
   </ul>
 </nav> 
-</div> 
-     </>}
+</div>
+</div> }
+     
     </>
   )
 }

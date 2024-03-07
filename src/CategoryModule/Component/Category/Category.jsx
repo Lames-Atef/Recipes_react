@@ -163,7 +163,7 @@ useEffect(()=>{
     tittle={"welcome category"}
     description={"You can now add your items that any user can order it from the Application and you can edit"}
     />
-      {isloading?<Loading/>: (
+     
     <div className='categoryContainers'>
 <div className='tittle d-flex justify-content-between p-3'>
 <div className='text-center'>
@@ -180,8 +180,8 @@ useEffect(()=>{
     <input type='text' className='form-control mb-3' onChange={gitNameValue}  placeholder='Select By Name'/>
   </div>
 </div>
-
 </div>
+{isloading?<Loading/>: 
 <div className='categoryTable p-3 text-center'>
   {categoryList.length>0?(
     <table className="table table-striped">
@@ -194,21 +194,24 @@ useEffect(()=>{
     </tr>
   </thead>
   <tbody>
+    
      {categoryList.map((item)=>(
 <tr  key={item.id}>
   <th scope="row">{item.id}</th>
   <td>{item.name}</td>
-  <td> <i onClick={()=>handleEdit(item)}
-   className='fa fa-edit text-warning mx-2' aria-hidden="true"> </i></td>
+  <td> <button onClick={()=>handleEdit(item)}><i 
+   className='fa fa-edit text-warning mx-2' aria-hidden="true"> </i></button></td>
 
-  <td><i onClick={() => handleDelete(item.id)} className='fa fa-trash text-danger mx-2' aria-hidden="true"></i></td>
+  <td><button  onClick={() => handleDelete(item.id)}>
+  <i className='fa fa-trash text-danger mx-2' aria-hidden="true"></i></button></td>
 </tr>
      ))}
   </tbody>
 </table>
   )
     :(<NoData/>)}
-</div>
+</div>}
+<div className='d-flex justify-content-center '>
 <nav aria-label="Page navigation example">
   <ul className="pagination">
     <li className="page-item">
@@ -226,7 +229,8 @@ useEffect(()=>{
     </li>
   </ul>
 </nav>
-    </div>)}
+</div>
+    </div>
     </>
   )
 }
